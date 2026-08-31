@@ -1,0 +1,10 @@
+# Java
+*.class
+
+# Eclipse
+bin/
+.metadata/
+.settings/
+
+# Arquivos temporários
+*.log
