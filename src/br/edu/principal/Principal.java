@@ -13,13 +13,12 @@ public class Principal {
         List<String> emails = new ArrayList<>();
 
         int opcao;
-        boolean continuar = true;
 
         Scanner sc = new Scanner(System.in);
 
         Uteis.mostraInicializacao();
 
-        while (continuar) {
+        while (true) {
 
             Uteis.mostraMenu();
 
@@ -37,14 +36,15 @@ public class Principal {
 
                 case 5 -> Agenda.excluir(sc, nomes, celulares, emails);
 
-                case 6 -> continuar = Uteis.sair();
+                case 6 -> {
+                    System.out.println("Saindo da Agenda de Contatos...");
+                    return;
+                }
 
                 case 7 -> Uteis.sobre();
 
                 default -> System.out.println("Opção inválida!");
             }
         }
-
-        sc.close();
     }
 }
