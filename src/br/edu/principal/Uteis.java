@@ -10,7 +10,7 @@ public class Uteis {
 
         System.out.println("==========================");
         System.out.println("     AGENDA DE CONTATOS   ");
-        System.out.println("          v1.1.1           ");
+        System.out.println("          v1.1.1          ");
         System.out.println("==========================");
         System.out.println("Bem-vindo!");
     }
@@ -37,18 +37,11 @@ public class Uteis {
         return opc;
     }
 
-    public static boolean sair() {
-
-        System.out.println("Saindo da Agenda de Contatos...");
-
-        return false;
-    }
-
     public static void sobre() {
 
         JOptionPane.showMessageDialog(
             null,
-            "Desenvolvido por Murilo Belizário!"
+            "Desenvolvido por Murilo Belizário"
         );
     }
 }
