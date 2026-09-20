@@ -38,6 +38,6 @@ public class Uteis {
     
     public static void sobre() {
     	JOptionPane.showMessageDialog(null, 
-    			"Desenvolvido por Roger M. Sarmento!");
+    			"Desenvolvido por Murilo Belizário");
     }
 }
