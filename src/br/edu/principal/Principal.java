@@ -29,3 +29,10 @@ public class Principal {
                 case 5-> Agenda.excluir(sc, nomes, celulares, emails);          	
                 case 6-> Uteis.sair(continuar);
                 case 7-> Uteis.sobre();
+
+                default -> System.out.println("Opção inválida!");
+            }
+        }
+
+        sc.close();
+	}
