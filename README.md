@@ -6,7 +6,7 @@ O projeto é desenvolvido de forma incremental, com cada versão introduzindo no
 
 ## 🎯 Objetivo
 
-Desenvolver uma Agenda de Contatos em Java, acompanhando a evolução das estruturas de armazenamento, da organização do código e das funcionalidades do sistema.
+Desenvolver uma Agenda de Contatos em Java, acompanhando a evolução das estruturas de armazenamento, da organização do código, da persistência de dados e das funcionalidades do sistema.
 
 ## 📈 Evolução do projeto
 
@@ -19,6 +19,7 @@ Desenvolver uma Agenda de Contatos em Java, acompanhando a evolução das estrut
 | **V.1.0.0** | Métodos | Organização do código em métodos |
 | **V.1.1.0** | Classes `Agenda` e `Uteis` | Separação de responsabilidades e organização do código |
 | **V.1.1.1** | Classes `Agenda` e `Uteis` | Correção do encerramento do sistema e opção "Sobre" |
+| **V.1.2.0** | Classe `Persistencia` | Persistência de dados em arquivos (`FileWriter`, `PrintWriter`, `BufferedReader`) |
 
 ### V.0.0.0
 
@@ -57,13 +58,20 @@ A classe **`Agenda`** passou a concentrar as operações relacionadas aos contat
 
 Também foi adicionada a opção **"Informações Sobre a Agenda de Contatos"**, utilizando `JOptionPane`.
 
-### V.1.1.1 — Versão atual
+### V.1.1.1
 
 Correção do funcionamento da opção **Sair**.
 
 Na versão anterior, o método `sair()` recebia a variável `continuar`, mas a alteração feita dentro do método não modificava a variável existente no `main`.
 
 Na V.1.1.1, o método `sair()` passou a retornar um valor `boolean`, permitindo que o `main` atualize corretamente a variável `continuar` e encerre o sistema.
+
+### V.1.2.0 — Versão atual
+
+Introdução da classe **`Persistencia`** para salvar e carregar os contatos em arquivo de texto (`contatos.txt`).
+
+- **Carregamento automático:** Os dados são lidos do arquivo ao iniciar a aplicação.
+- **Salvamento automático:** Os dados são gravados no arquivo ao optar por sair do sistema.
 
 ## ⚙️ Funcionalidades
 
@@ -72,6 +80,7 @@ Na V.1.1.1, o método `sair()` passou a retornar um valor `boolean`, permitindo 
 - 🔎 Procurar contato
 - ✏️ Alterar contato
 - 🗑️ Excluir contato
+- 💾 Persistência em arquivo (`contatos.txt`)
 - 🚪 Sair
 - ℹ️ Informações sobre a Agenda de Contatos
 
@@ -87,4 +96,6 @@ Agenda-Contatos/
             └── principal/
                 ├── Principal.java
                 ├── Agenda.java
-                └── Uteis.java
+                ├── Uteis.java
+                └── Persistencia.java
+```
