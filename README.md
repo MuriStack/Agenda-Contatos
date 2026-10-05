@@ -19,7 +19,7 @@ Desenvolver uma Agenda de Contatos em Java, acompanhando a evolução das estrut
 | **V.1.0.0** | Métodos | Organização do código em métodos |
 | **V.1.1.0** | Classes `Agenda` e `Uteis` | Separação de responsabilidades e organização do código |
 | **V.1.1.1** | Classes `Agenda` e `Uteis` | Correção do encerramento do sistema e opção "Sobre" |
-| **V.1.2.0** | Classe `Persistencia` | Persistência de dados em arquivos (`FileWriter`, `PrintWriter`, `BufferedReader`) |
+| **V.2.1.0** | Classe `Persistencia` | Persistência de dados em arquivos (`FileWriter`, `PrintWriter`, `BufferedReader`) |
 
 ### V.0.0.0
 
@@ -66,7 +66,7 @@ Na versão anterior, o método `sair()` recebia a variável `continuar`, mas a a
 
 Na V.1.1.1, o método `sair()` passou a retornar um valor `boolean`, permitindo que o `main` atualize corretamente a variável `continuar` e encerre o sistema.
 
-### V.1.2.0 — Versão atual
+### V.2.1.0 — Versão atual
 
 Introdução da classe **`Persistencia`** para salvar e carregar os contatos em arquivo de texto (`contatos.txt`).
 
