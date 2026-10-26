@@ -9,10 +9,8 @@ public class Principal {
 	public static void main(String[] args) {
 
 
-        List<String> nomes = new ArrayList<>();
-        List<String> celulares = new ArrayList<>();
-        List<String> emails = new ArrayList<>();
-        Persistencia.carregarContatos(nomes, celulares, emails);
+        List<Contato> contatos = new ArrayList<>();
+        Persistencia.carregarContatos(contatos);
         
         int opcao;
         boolean continuar = true;
@@ -26,13 +24,13 @@ public class Principal {
             opcao = Uteis.selecionaOpcao(sc);
 
             switch (opcao) {
-                case 1-> Agenda.adicionar(sc, nomes, celulares, emails);           	
-                case 2-> Agenda.listar(nomes, celulares, emails);
-                case 3-> Agenda.pesquisar(sc, nomes, celulares, emails);
-                case 4-> Agenda.atualizar(sc, nomes, celulares, emails);           	
-                case 5-> Agenda.excluir(sc, nomes, celulares, emails);          	
+                case 1-> Agenda.adicionar(sc, contatos);
+                case 2-> Agenda.listar(contatos);
+                case 3-> Agenda.pesquisar(sc, contatos);
+                case 4-> Agenda.atualizar(sc, contatos);
+                case 5-> Agenda.excluir(sc, contatos);
                 case 6-> {
-                	Persistencia.salvarContatos(nomes, celulares, emails);
+                    Persistencia.salvarContatos(contatos);
                 	continuar = Uteis.sair();
                 }
                 case 7-> Uteis.sobre();

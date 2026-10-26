@@ -9,15 +9,15 @@ import java.io.PrintWriter;
 import java.util.List;
 
 public class Persistencia {
-	public static void salvarContatos(List<String> nomes, List<String> celulares, List<String> emails) {
+	public static void salvarContatos(List<Contato> contatos) {
 		
 		try {
 			PrintWriter pw = new PrintWriter(new FileWriter("contatos.txt"));
-			for (int i = 0; i < nomes.size(); i++) {
+			for (Contato contato : contatos) {
 
-	            String linha = nomes.get(i) + ";"
-	                    + celulares.get(i) + ";"
-	                    + emails.get(i);
+	            String linha = contato.nome + ";"
+	                    + contato.celular + ";"
+	                    + contato.email;
 
 	            pw.println(linha);
 	        }
@@ -35,9 +35,7 @@ public class Persistencia {
 	}
 	
 	public static void carregarContatos(
-	        List<String> nomes,
-	        List<String> celulares,
-	        List<String> emails) {
+	        List<Contato> contatos) {
 		
 		File file = new File("contatos.txt");
 
@@ -50,9 +48,11 @@ public class Persistencia {
 	        while (linha != null) {
 	        	String[] dados = linha.split(";");
 	        	if (dados.length == 3) {
-	                nomes.add(dados[0]);
-	                celulares.add(dados[1]);
-	                emails.add(dados[2]);
+	                Contato contato = new Contato();
+	                contato.nome = dados[0];
+	                contato.celular = dados[1];
+	                contato.email = dados[2];
+	                contatos.add(contato);
 	            }
 	        	else {
 	                System.out.println("Registro inválido ignorado: " + linha);
