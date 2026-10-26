@@ -21,6 +21,8 @@ Desenvolver uma Agenda de Contatos em Java, acompanhando a evolução das estrut
 | **V.1.1.1** | Classes `Agenda` e `Uteis` | Correção do encerramento do sistema e opção "Sobre" |
 | **V.2.1.0** | Classe `Persistencia` | Persistência de dados em arquivos (`FileWriter`, `PrintWriter`, `BufferedReader`) |
 
+| **V.3.0.0** | Classe `Contato` | Instanciação de objetos e acesso a atributos |
+
 ### V.0.0.0
 
 Primeira versão do projeto, utilizando variáveis simples para armazenar **apenas um contato**.
@@ -66,12 +68,21 @@ Na versão anterior, o método `sair()` recebia a variável `continuar`, mas a a
 
 Na V.1.1.1, o método `sair()` passou a retornar um valor `boolean`, permitindo que o `main` atualize corretamente a variável `continuar` e encerre o sistema.
 
-### V.2.1.0 — Versão atual
+### V.2.1.0
 
 Introdução da classe **`Persistencia`** para salvar e carregar os contatos em arquivo de texto (`contatos.txt`).
 
 - **Carregamento automático:** Os dados são lidos do arquivo ao iniciar a aplicação.
 - **Salvamento automático:** Os dados são gravados no arquivo ao optar por sair do sistema.
+
+### V.3.0.0 — Versão atual
+
+Etapa da aula de 26/10/2026: introdução de classes e objetos.
+
+- Classe `Contato` com os atributos públicos `nome`, `celular` e `email`.
+- A classe `Principal` instancia um contato de exemplo e exibe seus atributos.
+- O exemplo é didático: não é adicionado à agenda nem ao arquivo `contatos.txt`.
+- O CRUD e a persistência da versão 2.1.0 continuam funcionando com as três listas de strings. A coleção de objetos será introduzida na próxima etapa.
 
 ## ⚙️ Funcionalidades
 
@@ -95,6 +106,7 @@ Agenda-Contatos/
         └── edu/
             └── principal/
                 ├── Principal.java
+                ├── Contato.java
                 ├── Agenda.java
                 ├── Uteis.java
                 └── Persistencia.java

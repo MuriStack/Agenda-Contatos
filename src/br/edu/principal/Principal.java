@@ -9,6 +9,16 @@ public class Principal {
 	public static void main(String[] args) {
 
 
+        // V.3.0.0: criação de um objeto e acesso aos seus atributos.
+        Contato contato = new Contato();
+        contato.nome = "Ana";
+        contato.celular = "8599999-0000";
+        contato.email = "ana@example.com";
+        System.out.println("=== EXEMPLO DE OBJETO CONTATO ===");
+        System.out.println("Nome: " + contato.nome);
+        System.out.println("Celular: " + contato.celular);
+        System.out.println("Email: " + contato.email);
+
         List<String> nomes = new ArrayList<>();
         List<String> celulares = new ArrayList<>();
         List<String> emails = new ArrayList<>();
