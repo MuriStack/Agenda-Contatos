@@ -22,6 +22,7 @@ Desenvolver uma Agenda de Contatos em Java, acompanhando a evolução das estrut
 | **V.2.1.0** | Classe `Persistencia` | Persistência de dados em arquivos (`FileWriter`, `PrintWriter`, `BufferedReader`) |
 | **V.3.0.0** | Classe `Contato` | Instanciação de objetos e acesso aos atributos |
 | **V.3.1.0** | Coleção de objetos | `List<Contato>`, `add()`, `get()` e `for-each` |
+| **V.3.2.0** | CRUD orientado a objetos | Operações e persistência com `List<Contato>` |
 
 ### V.0.0.0
 
@@ -81,7 +82,7 @@ Introdução da classe `Contato` e de um objeto de exemplo com `nome`, `celular`
 
 Código e documentação desta etapa: [tag v3.0.0](https://github.com/MuriStack/Agenda-Contatos/tree/v3.0.0).
 
-### V.3.1.0 — Versão atual
+### V.3.1.0
 
 Introdução de uma coleção **`List<Contato>`**, conforme a etapa de coleção de objetos do projeto da disciplina.
 
@@ -90,6 +91,18 @@ Introdução de uma coleção **`List<Contato>`**, conforme a etapa de coleção
 - Acesso aos atributos públicos `nome`, `celular` e `email` dos objetos armazenados.
 - Os contatos de exemplo são apenas didáticos: não entram no CRUD nem são salvos em `contatos.txt`.
 - O CRUD e a persistência continuam usando as três listas de strings da V.2.1.0 nesta etapa.
+
+### V.3.2.0 — Versão atual
+
+Adaptação das operações da agenda e da persistência para trabalhar com uma única **`List<Contato>`**.
+
+- Cada cadastro cria um objeto com `nome`, `celular` e `email`.
+- Listagem e pesquisa percorrem a coleção com `for-each`.
+- Alteração e exclusão localizam o objeto por referência; a exclusão ocorre após o percurso da coleção.
+- As buscas ignoram maiúsculas e minúsculas. Em nomes repetidos, a pesquisa lista todos, e a alteração e a exclusão afetam o último encontrado, seguindo o código do professor.
+- As listas paralelas e os exemplos didáticos da V.3.1.0 são removidos do programa principal.
+- A persistência salva os atributos dos objetos e reconstrói a coleção ao carregar o arquivo.
+- O formato `nome;celular;email` de `contatos.txt` permanece compatível com a V.2.1.0.
 
 As etapas seguem o [repositório do professor Roger M. Sarmento](https://github.com/rogermsarmento/agenda-contatos). O código de referência está sob a licença MIT, preservada no arquivo [LICENSE](LICENSE).
 
