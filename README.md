@@ -20,6 +20,7 @@ Desenvolver uma Agenda de Contatos em Java, acompanhando a evolução das estrut
 | **V.1.1.0** | Classes `Agenda` e `Uteis` | Separação de responsabilidades e organização do código |
 | **V.1.1.1** | Classes `Agenda` e `Uteis` | Correção do encerramento do sistema e opção "Sobre" |
 | **V.2.1.0** | Classe `Persistencia` | Persistência de dados em arquivos (`FileWriter`, `PrintWriter`, `BufferedReader`) |
+| **V.3.2.0** | Classe `Contato` e `List<Contato>` | Objetos, coleção de objetos, CRUD e persistência adaptados |
 
 ### V.0.0.0
 
@@ -66,12 +67,24 @@ Na versão anterior, o método `sair()` recebia a variável `continuar`, mas a a
 
 Na V.1.1.1, o método `sair()` passou a retornar um valor `boolean`, permitindo que o `main` atualize corretamente a variável `continuar` e encerre o sistema.
 
-### V.2.1.0 — Versão atual
+### V.2.1.0
 
 Introdução da classe **`Persistencia`** para salvar e carregar os contatos em arquivo de texto (`contatos.txt`).
 
 - **Carregamento automático:** Os dados são lidos do arquivo ao iniciar a aplicação.
 - **Salvamento automático:** Os dados são gravados no arquivo ao optar por sair do sistema.
+
+### V.3.2.0 — Versão atual
+
+Atualização referente à aula de **26/10/2026**, com os conceitos de classes e objetos (etapa 3.0), coleção de objetos (etapa 3.1) e integração ao sistema (3.2).
+
+- A classe **`Contato`** reúne os atributos `nome`, `celular` e `email`.
+- Uma **`List<Contato>`** substitui as três listas paralelas, mantendo os dados de cada contato no mesmo objeto.
+- As classes **`Agenda`** e **`Persistencia`** passam a trabalhar com essa coleção.
+- O arquivo **`contatos.txt`** continua no formato `nome;celular;email`, compatível com a versão 2.1.0, sem migração dos dados.
+- As buscas continuam ignorando maiúsculas e minúsculas. Para nomes repetidos, a alteração afeta o último encontrado e a exclusão afeta o primeiro, preservando o comportamento anterior.
+
+As etapas 3.0 e 3.1 são conceitos incorporados nesta versão; não foram criadas versões separadas com os contatos fictícios usados nos exemplos da aula.
 
 ## ⚙️ Funcionalidades
 
@@ -95,7 +108,23 @@ Agenda-Contatos/
         └── edu/
             └── principal/
                 ├── Principal.java
+                ├── Contato.java
                 ├── Agenda.java
                 ├── Uteis.java
                 └── Persistencia.java
 ```
+
+## ▶️ Como executar
+
+Com um JDK 14 ou superior, execute na raiz do projeto:
+
+```sh
+javac -encoding UTF-8 -d bin src/br/edu/principal/*.java
+java -cp bin br.edu.principal.Principal
+```
+
+O arquivo `contatos.txt` é lido e salvo no diretório de execução. A opção "Sobre" utiliza uma janela Swing e requer ambiente gráfico.
+
+## ✅ Verificação da V.3.2.0
+
+Compilação com `-Xlint:all` sem avisos e oito cenários de regressão comparados à versão 2.1.0: agenda vazia, cadastro e busca com acentos, alteração, exclusão e alteração de homônimos, leitura de arquivo antigo com registro inválido, opção inválida e exclusão do único contato. Cada cenário também verificou salvamento e recarga, totalizando 32 execuções entre as duas versões. A janela "Sobre" foi preservada, mas não foi validada visualmente.
