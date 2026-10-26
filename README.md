@@ -21,7 +21,7 @@ Desenvolver uma Agenda de Contatos em Java, acompanhando a evolução das estrut
 | **V.1.1.1** | Classes `Agenda` e `Uteis` | Correção do encerramento do sistema e opção "Sobre" |
 | **V.2.1.0** | Classe `Persistencia` | Persistência de dados em arquivos (`FileWriter`, `PrintWriter`, `BufferedReader`) |
 | **V.3.0.0** | Classe `Contato` | Instanciação de objetos e acesso aos atributos |
-| **V.3.2.0** | Classe `Contato` e `List<Contato>` | Objetos, coleção de objetos, CRUD e persistência adaptados |
+| **V.3.1.0** | Coleção de objetos | `List<Contato>`, `add()`, `get()` e `for-each` |
 
 ### V.0.0.0
 
@@ -81,17 +81,17 @@ Introdução da classe `Contato` e de um objeto de exemplo com `nome`, `celular`
 
 Código e documentação desta etapa: [tag v3.0.0](https://github.com/MuriStack/Agenda-Contatos/tree/v3.0.0).
 
-### V.3.2.0 — Versão atual
+### V.3.1.0 — Versão atual
 
-Atualização referente à aula de **26/10/2026**, com a evolução da introdução de classes e objetos na V.3.0.0 para a coleção de objetos integrada ao sistema na V.3.2.0.
+Introdução de uma coleção **`List<Contato>`**, conforme a etapa de coleção de objetos do projeto da disciplina.
 
-- A classe **`Contato`** reúne os atributos `nome`, `celular` e `email`.
-- Uma **`List<Contato>`** substitui as três listas paralelas, mantendo os dados de cada contato no mesmo objeto.
-- As classes **`Agenda`** e **`Persistencia`** passam a trabalhar com essa coleção.
-- O arquivo **`contatos.txt`** continua no formato `nome;celular;email`, compatível com a versão 2.1.0, sem migração dos dados.
-- As buscas continuam ignorando maiúsculas e minúsculas. Para nomes repetidos, a alteração afeta o último encontrado e a exclusão afeta o primeiro, preservando o comportamento anterior.
+- Criação de três objetos `Contato` e inclusão na coleção com `add()`.
+- Recuperação de objetos com `get()` e percurso com `for-each` e índices.
+- Acesso aos atributos públicos `nome`, `celular` e `email` dos objetos armazenados.
+- Os contatos de exemplo são apenas didáticos: não entram no CRUD nem são salvos em `contatos.txt`.
+- O CRUD e a persistência continuam usando as três listas de strings da V.2.1.0 nesta etapa.
 
-A sequência de versões é **V.2.1.0 → V.3.0.0 → V.3.2.0**. A V.3.0.0 foi registrada como etapa didática após a publicação inicial da V.3.2.0, sem alterar os commits ou as tags já publicados. A integração desse registro ao histórico preserva o código final da V.3.2.0.
+As etapas seguem o [repositório do professor Roger M. Sarmento](https://github.com/rogermsarmento/agenda-contatos). O código de referência está sob a licença MIT, preservada no arquivo [LICENSE](LICENSE).
 
 ## ⚙️ Funcionalidades
 
@@ -109,6 +109,7 @@ A sequência de versões é **V.2.1.0 → V.3.0.0 → V.3.2.0**. A V.3.0.0 foi r
 ```text
 Agenda-Contatos/
 ├── .gitignore
+├── LICENSE
 ├── README.md
 └── src/
     └── br/
@@ -131,7 +132,3 @@ java -cp bin br.edu.principal.Principal
 ```
 
 O arquivo `contatos.txt` é lido e salvo no diretório de execução. A opção "Sobre" utiliza uma janela Swing e requer ambiente gráfico.
-
-## ✅ Verificação da V.3.2.0
-
-Compilação com `-Xlint:all` sem avisos e oito cenários de regressão comparados à versão 2.1.0: agenda vazia, cadastro e busca com acentos, alteração, exclusão e alteração de homônimos, leitura de arquivo antigo com registro inválido, opção inválida e exclusão do único contato. Cada cenário também verificou salvamento e recarga, totalizando 32 execuções entre as duas versões. A janela "Sobre" foi preservada, mas não foi validada visualmente.
