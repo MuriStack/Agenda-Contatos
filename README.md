@@ -23,6 +23,7 @@ Desenvolver uma Agenda de Contatos em Java, acompanhando a evolução das estrut
 | **V.3.0.0** | Classe `Contato` | Instanciação de objetos e acesso aos atributos |
 | **V.3.1.0** | Coleção de objetos | `List<Contato>`, `add()`, `get()` e `for-each` |
 | **V.3.2.0** | CRUD orientado a objetos | Operações e persistência com `List<Contato>` |
+| **V.3.3.0** | Encapsulamento | Atributos privados, construtores, getters, setters e `this` |
 
 ### V.0.0.0
 
@@ -92,7 +93,7 @@ Introdução de uma coleção **`List<Contato>`**, conforme a etapa de coleção
 - Os contatos de exemplo são apenas didáticos: não entram no CRUD nem são salvos em `contatos.txt`.
 - O CRUD e a persistência continuam usando as três listas de strings da V.2.1.0 nesta etapa.
 
-### V.3.2.0 — Versão atual
+### V.3.2.0
 
 Adaptação das operações da agenda e da persistência para trabalhar com uma única **`List<Contato>`**.
 
@@ -104,7 +105,38 @@ Adaptação das operações da agenda e da persistência para trabalhar com uma 
 - A persistência salva os atributos dos objetos e reconstrói a coleção ao carregar o arquivo.
 - O formato `nome;celular;email` de `contatos.txt` permanece compatível com a V.2.1.0.
 
+### V.3.3.0 — Versão atual
+
+Encapsulamento e melhoria da modelagem da classe **`Contato`**.
+
+- Os atributos `nome`, `celular` e `email` passam a ser `private`.
+- Getters permitem consultar os dados e setters permitem alterá-los.
+- Um construtor com parâmetros inicializa o contato com seus dados; o construtor sem parâmetros também permanece disponível, como no projeto de referência.
+- A palavra-chave `this` diferencia os atributos dos parâmetros.
+- O CRUD utiliza getters e setters; o cadastro e a leitura do arquivo utilizam o construtor com parâmetros.
+- A persistência utiliza getters para salvar os dados, mantendo o formato do arquivo.
+- A opção **Sair** salva os contatos, chama `Uteis.sair()`, fecha o `Scanner` e encerra o `main` com `return`.
+
+```java
+Contato contato = new Contato("Ana", "8599999-0000", "ana@example.com");
+System.out.println(contato.getNome());
+contato.setNome("Ana Silva");
+```
+
 As etapas seguem o [repositório do professor Roger M. Sarmento](https://github.com/rogermsarmento/agenda-contatos). O código de referência está sob a licença MIT, preservada no arquivo [LICENSE](LICENSE).
+
+## 🏷️ Consulta das versões
+
+A sequência didática completa é **V.2.1.0 → V.3.0.0 → V.3.1.0 → V.3.2.0 → V.3.3.0**.
+
+Os novos commits registram a V.3.1.0, reaplicam a V.3.2.0 e avançam para a V.3.3.0 nessa ordem. Cada etapa possui um commit de código e outro de documentação.
+
+- [V.3.0.0 — Classes e objetos](https://github.com/MuriStack/Agenda-Contatos/tree/v3.0.0)
+- [V.3.1.0 — Coleção de objetos](https://github.com/MuriStack/Agenda-Contatos/tree/d5098cb6385b61108f055d2aaffb16793089ff21)
+- [V.3.2.0 — CRUD reaplicado após a V.3.1.0](https://github.com/MuriStack/Agenda-Contatos/tree/b10be2b3ad89dc3ff9ee8a0cf3e1dc2c095676e8)
+- [V.3.3.0 — Encapsulamento](https://github.com/MuriStack/Agenda-Contatos/tree/0356df6100ebacede2fba4623097b5bf0d7d0e5c)
+
+Os commits anteriores e a tag original `v3.2.0` foram preservados. Para consultar a V.3.2.0 reaplicada nesta sequência, utilize o link acima.
 
 ## ⚙️ Funcionalidades
 
@@ -145,3 +177,19 @@ java -cp bin br.edu.principal.Principal
 ```
 
 O arquivo `contatos.txt` é lido e salvo no diretório de execução. A opção "Sobre" utiliza uma janela Swing e requer ambiente gráfico.
+
+## ✅ Verificação das versões
+
+As versões **3.1.0, 3.2.0 e 3.3.0** foram compiladas com `javac --release 14 -Xlint:all -encoding UTF-8` e comparadas ao código do professor em dez cenários por versão:
+
+- Agenda vazia e contatos não encontrados;
+- Cadastro e busca com acentos e diferença entre maiúsculas e minúsculas;
+- Alteração de contato;
+- Exclusão do único contato e de um contato no meio da coleção;
+- Alteração e exclusão de homônimos;
+- Leitura de arquivo antigo com registro inválido;
+- Opção inválida e saída imediata.
+
+Cada cenário verificou a saída do programa, o conteúdo salvo e uma nova execução para recarregar os dados. Foram **120 execuções**, somando as três versões deste projeto e as respectivas versões de referência. Na V.3.1.0, também foi conferido que os contatos de exemplo não são salvos.
+
+Na V.3.3.0, foram verificados os atributos privados, os dois construtores, os getters e os setters da classe `Contato`. A janela "Sobre" mantém a identificação do desenvolvedor, mas não foi validada visualmente.
