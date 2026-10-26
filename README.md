@@ -20,6 +20,7 @@ Desenvolver uma Agenda de Contatos em Java, acompanhando a evolução das estrut
 | **V.1.1.0** | Classes `Agenda` e `Uteis` | Separação de responsabilidades e organização do código |
 | **V.1.1.1** | Classes `Agenda` e `Uteis` | Correção do encerramento do sistema e opção "Sobre" |
 | **V.2.1.0** | Classe `Persistencia` | Persistência de dados em arquivos (`FileWriter`, `PrintWriter`, `BufferedReader`) |
+| **V.3.0.0** | Classe `Contato` | Instanciação de objetos e acesso aos atributos |
 | **V.3.2.0** | Classe `Contato` e `List<Contato>` | Objetos, coleção de objetos, CRUD e persistência adaptados |
 
 ### V.0.0.0
@@ -74,9 +75,15 @@ Introdução da classe **`Persistencia`** para salvar e carregar os contatos em 
 - **Carregamento automático:** Os dados são lidos do arquivo ao iniciar a aplicação.
 - **Salvamento automático:** Os dados são gravados no arquivo ao optar por sair do sistema.
 
+### V.3.0.0
+
+Introdução da classe `Contato` e de um objeto de exemplo com `nome`, `celular` e `email`. Nesta etapa, o CRUD e a persistência ainda usam as três listas de strings da versão 2.1.0. O exemplo não é salvo no arquivo de contatos.
+
+Código e documentação desta etapa: [tag v3.0.0](https://github.com/MuriStack/Agenda-Contatos/tree/v3.0.0).
+
 ### V.3.2.0 — Versão atual
 
-Atualização referente à aula de **26/10/2026**, com os conceitos de classes e objetos (etapa 3.0), coleção de objetos (etapa 3.1) e integração ao sistema (3.2).
+Atualização referente à aula de **26/10/2026**, com a evolução da introdução de classes e objetos na V.3.0.0 para a coleção de objetos integrada ao sistema na V.3.2.0.
 
 - A classe **`Contato`** reúne os atributos `nome`, `celular` e `email`.
 - Uma **`List<Contato>`** substitui as três listas paralelas, mantendo os dados de cada contato no mesmo objeto.
@@ -84,7 +91,7 @@ Atualização referente à aula de **26/10/2026**, com os conceitos de classes e
 - O arquivo **`contatos.txt`** continua no formato `nome;celular;email`, compatível com a versão 2.1.0, sem migração dos dados.
 - As buscas continuam ignorando maiúsculas e minúsculas. Para nomes repetidos, a alteração afeta o último encontrado e a exclusão afeta o primeiro, preservando o comportamento anterior.
 
-As etapas 3.0 e 3.1 são conceitos incorporados nesta versão; não foram criadas versões separadas com os contatos fictícios usados nos exemplos da aula.
+A sequência de versões é **V.2.1.0 → V.3.0.0 → V.3.2.0**. A V.3.0.0 foi registrada como etapa didática após a publicação inicial da V.3.2.0, sem alterar os commits ou as tags já publicados. A integração desse registro ao histórico preserva o código final da V.3.2.0.
 
 ## ⚙️ Funcionalidades
 
