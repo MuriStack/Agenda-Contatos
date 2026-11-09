@@ -7,8 +7,8 @@ import javax.swing.JOptionPane;
 public class Uteis {
     public static void mostraInicializacao() {
         System.out.println("==========================");
-        System.out.println("     AGENDA DE CONTATOS    ");
-        System.out.println("          v4.0.0           ");
+        System.out.println("     AGENDA DE CONTATOS   ");
+        System.out.println("          v4.1.0          ");
         System.out.println("==========================");
         System.out.println("Bem-vindo!");
     }
