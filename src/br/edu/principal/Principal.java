@@ -4,13 +4,19 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import br.edu.dao.ContatoDAO;
+import br.edu.modelo.Contato;
+import br.edu.servico.Agenda;
+
+import br.edu.uteis.Uteis;
+
 public class Principal {
 
     public static void main(String[] args) {
 
         List<Contato> contatos = new ArrayList<>();
 
-        Persistencia.carregarContatos(contatos);
+        ContatoDAO.carregarContatos(contatos);
 
         int opcao;
 
@@ -29,13 +35,13 @@ public class Principal {
                 case 4-> Agenda.atualizar(sc, contatos);
                 case 5-> Agenda.excluir(sc, contatos);
                 case 6-> {
-                    Persistencia.salvarContatos(contatos);
+                    ContatoDAO.salvarContatos(contatos);
                     Uteis.sair();
                     sc.close();
                     return;
                 }
                 case 7-> Uteis.sobre();
-                default -> System.out.println("Opção inválida!");
+                default -> System.out.println("Opção Inválida!");
             }
         }
     }

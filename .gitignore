@@ -8,3 +8,8 @@ bin/
 
 # Arquivos temporários
 *.log
+
+# Arquivos locais da IDE e dados da agenda
+.project
+.classpath
+/contatos.txt
