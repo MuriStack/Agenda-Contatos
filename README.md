@@ -26,6 +26,7 @@ Desenvolver uma Agenda de Contatos em Java, acompanhando a evolução das estrut
 | **V.3.3.0** | Encapsulamento | Atributos privados, construtores, getters e setters |
 | **V.4.0.0** | Classe `ContatoDAO` | Organização em pacotes e acesso ao arquivo |
 | **V.4.1.0** | DAO orientado a objetos | Construtor e métodos de instância |
+| **V.5.0.0** | Modelo, visão e controlador | Separação entre interação e operações da agenda |
 
 ### V.0.0.0
 
@@ -111,9 +112,13 @@ O CRUD e a persistência são adaptados para utilizar os construtores, getters e
 
 A classe `ContatoDAO` assume a leitura e a gravação de contatos. O modelo, os serviços da agenda e os utilitários passam a ter pacotes próprios.
 
-### V.4.1.0 — Versão atual
+### V.4.1.0
 
 O caminho do arquivo passa a ser definido no construtor de `ContatoDAO`. Se o salvamento falhar, a agenda informa o erro e mantém o menu aberto.
+
+### V.5.0.0 — Versão atual
+
+A classe `AgendaView` lê e exibe os dados, e `AgendaController` executa as operações sobre os contatos. A classe `Principal` ainda coordena o menu.
 
 ## ⚙️ Funcionalidades
 
@@ -135,14 +140,16 @@ Agenda-Contatos/
 └── src/
     └── br/
         └── edu/
+            ├── controle/
+            │   └── AgendaController.java
             ├── dao/
             │   └── ContatoDAO.java
             ├── modelo/
             │   └── Contato.java
             ├── principal/
             │   └── Principal.java
-            ├── servico/
-            │   └── Agenda.java
-            └── uteis/
-                └── Uteis.java
+            ├── uteis/
+            │   └── Uteis.java
+            └── visao/
+                └── AgendaView.java
 ```
