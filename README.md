@@ -25,6 +25,7 @@ Desenvolver uma Agenda de Contatos em Java, acompanhando a evolução das estrut
 | **V.3.2.0** | CRUD orientado a objetos | Operações e persistência com `List<Contato>` |
 | **V.3.3.0** | Encapsulamento | Atributos privados, construtores, getters e setters |
 | **V.4.0.0** | Classe `ContatoDAO` | Organização em pacotes e acesso ao arquivo |
+| **V.4.1.0** | DAO orientado a objetos | Construtor e métodos de instância |
 
 ### V.0.0.0
 
@@ -106,9 +107,13 @@ Introdução do **encapsulamento** na classe `Contato`.
 
 O CRUD e a persistência são adaptados para utilizar os construtores, getters e setters. O encerramento do programa passa a fechar o `Scanner` e finalizar o `main` com `return`.
 
-### V.4.0.0 — Versão atual
+### V.4.0.0
 
 A classe `ContatoDAO` assume a leitura e a gravação de contatos. O modelo, os serviços da agenda e os utilitários passam a ter pacotes próprios.
+
+### V.4.1.0 — Versão atual
+
+O caminho do arquivo passa a ser definido no construtor de `ContatoDAO`. Se o salvamento falhar, a agenda informa o erro e mantém o menu aberto.
 
 ## ⚙️ Funcionalidades
 
