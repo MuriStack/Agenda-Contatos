@@ -24,6 +24,7 @@ Desenvolver uma Agenda de Contatos em Java, acompanhando a evolução das estrut
 | **V.3.1.0** | Coleção de objetos | `List<Contato>`, `add()`, `get()` e `for-each` |
 | **V.3.2.0** | CRUD orientado a objetos | Operações e persistência com `List<Contato>` |
 | **V.3.3.0** | Encapsulamento | Atributos privados, construtores, getters e setters |
+| **V.4.0.0** | Classe `ContatoDAO` | Organização em pacotes e acesso ao arquivo |
 
 ### V.0.0.0
 
@@ -95,7 +96,7 @@ Adaptação das operações de adicionar, listar, pesquisar, alterar e excluir c
 
 As três listas de strings são substituídas por uma única **`List<Contato>`**. A persistência também passa a utilizar objetos, mantendo o formato `nome;celular;email` no arquivo `contatos.txt`.
 
-### V.3.3.0 — Versão atual
+### V.3.3.0
 
 Introdução do **encapsulamento** na classe `Contato`.
 
@@ -104,6 +105,10 @@ Introdução do **encapsulamento** na classe `Contato`.
 - **Construtores:** Inicialização dos dados na criação do objeto, utilizando `this`.
 
 O CRUD e a persistência são adaptados para utilizar os construtores, getters e setters. O encerramento do programa passa a fechar o `Scanner` e finalizar o `main` com `return`.
+
+### V.4.0.0 — Versão atual
+
+A classe `ContatoDAO` assume a leitura e a gravação de contatos. O modelo, os serviços da agenda e os utilitários passam a ter pacotes próprios.
 
 ## ⚙️ Funcionalidades
 
@@ -125,10 +130,14 @@ Agenda-Contatos/
 └── src/
     └── br/
         └── edu/
-            └── principal/
-                ├── Principal.java
-                ├── Contato.java
-                ├── Agenda.java
-                ├── Uteis.java
-                └── Persistencia.java
+            ├── dao/
+            │   └── ContatoDAO.java
+            ├── modelo/
+            │   └── Contato.java
+            ├── principal/
+            │   └── Principal.java
+            ├── servico/
+            │   └── Agenda.java
+            └── uteis/
+                └── Uteis.java
 ```
